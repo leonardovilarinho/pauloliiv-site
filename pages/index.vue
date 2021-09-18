@@ -1,13 +1,22 @@
 <template>
   <main>
-    <section class="self-center flex flex-col flex-1 items-center justify-center">
-      <h1 class="title text-center">Nuxt — Tailwind — Netlify CMS</h1>
-      <h2 class="subtitle text-center">Boilerplate</h2>
+    <section class="grid banner" data-grid="center-center">
+      <img src="~/assets/images/logo.png"/>
     </section>
 
-    <section class="mt-8">
-      <h3 class="text-primary-600 dark:text-primary-400 max-w-5xl mx-auto">Latest blog post</h3>
-      <posts post-type="blog" :amount="1" />
+    <section class="grid" data-grid="column">
+      <h2 class="subtitle">Latest single</h2>
+      <posts post-type="feature" :amount="1" />
     </section>
   </main>
 </template>
+
+<style lang="css" scoped>
+.banner {
+  padding: 100px 0px;
+}
+
+.banner img {
+  width: 60%;
+}
+</style>

@@ -1,14 +1,82 @@
 <template>
-  <nav class="scrim-bg fixed z-40 top-0 inset-x-0 pt-3 px-3" aria-label="Main Menu">
-    <ul class="flex">
-      <li class="flex-1">
-        <nuxt-link class="btn block" to="/">Home</nuxt-link>
+  <nav class="header grid" aria-label="Main Menu">
+    <ul class="col-6 grid list--horizontal list--unstyled">
+      <li class="col link">
+        <a href="#home">
+          <img src="~/assets/images/logo-square.png"/>
+          HOME
+        </a>
       </li>
-      <li class="flex-1 ml-2">
-        <nuxt-link class="btn block" to="/blog">Blog</nuxt-link>
+
+      <li class="col link">
+        <a href="#media">
+          <img src="~/assets/images/logo-square.png"/>
+          MEDIA
+        </a>
       </li>
-      <li class="flex-1 ml-2">
-        <nuxt-link class="btn block" to="/projects">Projects</nuxt-link>
+
+      <li class="col link">
+        <a href="#about">
+          <img src="~/assets/images/logo-square.png"/>
+          ABOUT
+        </a>
+      </li>
+
+      <li class="col link">
+        <a href="#contact">
+          <img src="~/assets/images/logo-square.png"/>
+          CONTACT
+        </a>
+      </li>
+    </ul>
+
+    <ul class="col-6 grid list--horizontal list--unstyled">
+      <li class="col link">
+        <a href="#home">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+
+      <li class="col link">
+        <a href="#home">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+
+      <li class="col link">
+        <a href="#home">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+
+      <li class="col link">
+        <a href="#home">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </li>
+
+      <li class="col link">
+        <a href="#home">
+          <i class="fab fa-soundcloud"></i>
+        </a>
+      </li>
+
+      <li class="col link">
+        <a href="#home">
+          <i class="fab fa-spotify"></i>
+        </a>
+      </li>
+
+      <li class="col link">
+        <a href="#home">
+          <i class="fab fa-deezer"></i>
+        </a>
+      </li>
+
+      <li class="col link">
+        <a href="#home">
+          <i class="fab fa-youtube"></i>
+        </a>
       </li>
     </ul>
   </nav>
@@ -20,46 +88,36 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
-.scrim-bg {
-  &::before {
-    content: '';
-    z-index: -1;
-    background-color: var(--bg);
-    @apply absolute bottom-0 inset-x-0 h-12 mb-4 transition-colors duration-200 ease-in-out;
-  }
-  &::after {
-    content: '';
-    z-index: -1;
-    opacity: 1;
-    animation: fadeIn1 500ms ease-in-out;
-    @apply pointer-events-none absolute bottom-0 inset-x-0 h-16 -mb-12;
-    background: linear-gradient(to bottom, #111827, cubic-bezier(0.15, 0, 0.45, 1), transparent);
-  }
-}
-.nuxt-link-exact-active {
-  @apply text-gray-200 border-gray-400 bg-gray-800 bg-opacity-25 cursor-default;
+<style lang="css" scoped>
+.header {
+  padding: 20px 0px 30px;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.light {
-  & .scrim-bg {
-    &::after {
-      animation-name: fadeIn2;
-      background: linear-gradient(to bottom, #e5e7eb, cubic-bezier(0.15, 0, 0.45, 1), transparent);
-    }
-  }
-  & .nuxt-link-exact-active {
-    @apply text-primary-700 border-gray-600 bg-gray-100;
-  }
+.header > .grid {
+  justify-content: center;
+  align-items: center;
 }
 
-/* Need two because of smoother switching between color modes */
-@keyframes fadeIn1 {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.link {
+  padding: 0px 10px;
 }
-@keyframes fadeIn2 {
-  from { opacity: 0; }
-  to { opacity: 1; }
+
+.link > * {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  color: #fafafa;
+  font-size: 15px;
+}
+
+.link img {
+  height: 40px;
+}
+
+.link .fab {
+  font-size: 20px;
 }
 </style>

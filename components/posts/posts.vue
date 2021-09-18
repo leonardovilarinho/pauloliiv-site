@@ -54,8 +54,8 @@
     props: {
       postType: {
         type: String,
-        default: 'blog',
-        validator: (val) => ['blog', 'projects'].includes(val),
+        default: 'feature',
+        validator: (val) => ['feature', 'projects'].includes(val),
       },
       amount: { // ? https://content.nuxtjs.org/fetching#limitn
         type: Number,
