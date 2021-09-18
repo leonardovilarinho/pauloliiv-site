@@ -13,10 +13,16 @@
 
 <style lang="css" scoped>
 .banner {
-  padding: 100px 0px;
+  height: calc(100vh - 100px);
 }
 
 .banner img {
   width: 60%;
+}
+
+.subtitle {
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
 }
 </style>
