@@ -1,5 +1,5 @@
 <template>
-  <ul v-if="posts.length > 0" class="cards">
+  <ul v-if="posts.length > 0" :class="postType === 'projects' ? 'musics' : ''" class="cards">
     <li
       v-for="(post, index) in posts"
       :key="index"
@@ -7,6 +7,7 @@
     >
 
     <iframe
+      v-if="postType === 'feature'"
       :allow="post.body.children[0].props.allow"
       :allow-transparency="post.body.children[0].props.allowTransparency"
       :frame-border="post.body.children[0].props.frameBorder"
@@ -15,8 +16,11 @@
       :src="post.body.children[0].props.src"
     />
 
-      
-      <span>{{ formatDate(post.createdAt) }}</span>
+    <a v-else :href="post.link" target="_blank" class="music">
+      <h3>{{ post.title }}</h3>
+      <img :src="post.cover" :alt="post.title">
+    </a>
+
     </li>
   </ul>
   <div v-else-if="loading" class="cards">
@@ -95,15 +99,75 @@
 .cards {
   margin: 20px 15%;
   width: 70%;
+  padding: 0px;
 }
 .card {
   display: flex;
   flex-flow: column;
   width: 100%;
   margin-bottom: 30px;
+  padding: 0px;
+
 }
 
 .card iframe {
   border: none;
+}
+
+.musics {
+  margin: 40px 15%;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.musics .card {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 15px 1% 30px;
+}
+.music {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%
+}
+
+.music * {
+  color: #fff;
+  font-weight: 300;
+}
+
+.music img {
+  width: 180px;
+  height: 180px;
+}
+
+@media screen and (max-width: 1024px) {
+  .cards {
+    margin: 20px 20px;
+    width: calc(100% - 40px);
+  }
+
+  .musics .card {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(50% - 4px);
+    margin: 15px 2px 30px;
+  }
+
+  .music img {
+    width: 150px;
+    height: 150px;
+  }
 }
 </style>

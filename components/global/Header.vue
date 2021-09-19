@@ -15,12 +15,12 @@
         </a>
       </li>
 
-      <li class="col link">
+      <!-- <li class="col link">
         <a href="#about">
           <img src="~/assets/images/logo-square.png"/>
           ABOUT
         </a>
-      </li>
+      </li> -->
 
       <li class="col link">
         <a href="#contact">
@@ -30,7 +30,7 @@
       </li>
     </ul>
 
-    <ul class="col-6 grid list--horizontal list--unstyled">
+    <ul class="links col-6 grid list--horizontal list--unstyled">
       <li class="col link">
         <a href="#home">
           <i class="fab fa-facebook-f"></i>
@@ -119,5 +119,11 @@ export default {
 
 .link .fab {
   font-size: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .links {
+    margin-top: 20px;
+  }
 }
 </style>
